@@ -4,14 +4,23 @@ from matplotlib import style
 
 style.use('fivethirtyeight')
 
-with open('happy/happy_1.txt') as my_file:
-    happy_array = my_file.readlines()
+#with open('happy/happy_1.txt') as my_file:
+#    happy_array = my_file.readlines()
 
-with open('sad/sad_1.txt') as my_file:
-    sad_array = my_file.readlines()
+happy_array= np.loadtxt('happy/happy_1.txt')
+sad_array= np.loadtxt('sad/sad_1.txt')
+
+#with open('sad/sad_1.txt') as my_file:
+#    sad_array = my_file.readlines()
+
+fig = plt.figure(figsize=(10,10))
+ax0 = fig.add_subplot(111)
+ax0.scatter(happy_array,marker='s',c='grey',edgecolor='black')
+ax0.scatter(sad_array,marker='^',c='yellow',edgecolor='black')
+plt.show()
 
 # Calculate the mean vectors per class
-mean_happy = np.mean(happy_array,axis=1).reshape(2,1) # Creates a 2x1 vector consisting of the means of the dimensions 
+mean_happy = np.mean(happy_array,axis=0).reshape(2,1) # Creates a 2x1 vector consisting of the means of the dimensions 
 mean_sad = np.mean(sad_array,axis=1).reshape(2,1)
 
 #mean_circles = np.mean(circles,axis=1).reshape(2,1)
