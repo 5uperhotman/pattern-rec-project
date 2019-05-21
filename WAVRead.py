@@ -18,6 +18,13 @@ def fftwav(list):
     # plt.plot(plotit,'r')
     # savefig(list+'.png',bbox_inches='tight')   #Saves figure, not too important
     # plt.show() 
+    plotit = np.array2string(plotit)
+    file = open('fft.txt', 'w')
+    file.write(plotit)
+    file.write("\n")
+
+    
+    
 
 
 # Happy
@@ -33,7 +40,7 @@ fftwav(readings_happy[5].strip('\n'))
 fftwav(readings_happy[6].strip('\n'))
 fftwav(readings_happy[7].strip('\n'))
 
-
+'''
 # Sad
 
 with open('Adresses_sad.txt', 'r') as f:
@@ -47,7 +54,7 @@ fftwav(readings_sad[4].strip('\n'))
 fftwav(readings_sad[5].strip('\n'))
 fftwav(readings_sad[6].strip('\n'))
 
-
+'''
 
 
 # References
