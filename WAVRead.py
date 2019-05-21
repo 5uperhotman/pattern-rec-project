@@ -27,14 +27,14 @@ def fftwav(list, title):
 with open('Addresses_happy.txt', 'r') as f:
       readings_happy = f.readlines()
 
-fftwav(readings_happy[0].strip('\n'), "Happy_1") # .strip needed to remove \n 
-fftwav(readings_happy[1].strip('\n'), "Happy_2")
-fftwav(readings_happy[2].strip('\n'), "Happy_3")
-fftwav(readings_happy[3].strip('\n'), "Happy_4")
-fftwav(readings_happy[4].strip('\n'), "Happy_5")
-fftwav(readings_happy[5].strip('\n'), "Happy_6")
-fftwav(readings_happy[6].strip('\n'), "Happy_7")
-fftwav(readings_happy[7].strip('\n'), "Happy_8")
+fftwav(readings_happy[0].strip('\n'), "happy\Happy_1") # .strip needed to remove \n 
+fftwav(readings_happy[1].strip('\n'), "happy\Happy_2")
+fftwav(readings_happy[2].strip('\n'), "happy\Happy_3")
+fftwav(readings_happy[3].strip('\n'), "happy\Happy_4")
+fftwav(readings_happy[4].strip('\n'), "happy\Happy_5")
+fftwav(readings_happy[5].strip('\n'), "happy\Happy_6")
+fftwav(readings_happy[6].strip('\n'), "happy\Happy_7")
+fftwav(readings_happy[7].strip('\n'), "happy\Happy_8")
 
 
 # Sad
@@ -42,13 +42,13 @@ fftwav(readings_happy[7].strip('\n'), "Happy_8")
 with open('Adresses_sad.txt', 'r') as f:
       readings_sad = f.readlines()
 
-fftwav(readings_sad[0].strip('\n'), "Sad_1") 
-fftwav(readings_sad[1].strip('\n'), "Sad_2")
-fftwav(readings_sad[2].strip('\n'), "Sad_3")
-fftwav(readings_sad[3].strip('\n'), "Sad_4")
-fftwav(readings_sad[4].strip('\n'), "Sad_5")
-fftwav(readings_sad[5].strip('\n'), "Sad_6")
-fftwav(readings_sad[6].strip('\n'), "Sad_7")
+fftwav(readings_sad[0].strip('\n'), "sad\Sad_1") 
+fftwav(readings_sad[1].strip('\n'), "sad\Sad_2")
+fftwav(readings_sad[2].strip('\n'), "sad\Sad_3")
+fftwav(readings_sad[3].strip('\n'), "sad\Sad_4")
+fftwav(readings_sad[4].strip('\n'), "sad\Sad_5")
+fftwav(readings_sad[5].strip('\n'), "sad\Sad_6")
+fftwav(readings_sad[6].strip('\n'), "sad\Sad_7")
 
 
 
