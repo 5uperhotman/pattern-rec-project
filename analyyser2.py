@@ -26,23 +26,27 @@ def fftwav(list):
             plotit[n]=0
         n = n + 1
     ave = np.median(np.nonzero(plotit))
+
+    print(ave)
     return ave
 
-happy_array= np.loadtxt('happy/happy_1.txt')
-sad_array= np.loadtxt('sad/sad_1.txt')
+happy_array= np.loadtxt('Happy.txt')
+sad_array= np.loadtxt('Sad.txt')
 
 happy_ave = np.median(np.nonzero(happy_array)) 
 sad_ave = np.median(np.nonzero(sad_array)) 
 
-with open('siia tuleb failinimi', 'r') as f:
+with open('testimiseks.txt', 'r') as f:
       goodtime = f.readlines()
 
-question = fftwav(goodtime)
+question = fftwav(goodtime[0].strip('\n'))
 
-a1 = abs(happy_array-question)
+a1 = abs(happy_ave-question)
 a2 = abs(sad_ave-question)
-
-if a1 < a1:
+print("Happy ave: ", happy_ave)
+print("Sad ave: ", sad_ave)
+print("Question: ", question)
+if a1 < a2:
     print("This is a happy person")
 else:
     print("This is a sad person")
