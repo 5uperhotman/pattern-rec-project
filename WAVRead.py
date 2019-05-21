@@ -17,7 +17,7 @@ def fftwav(list):
     plotit = abs(c[:(d-1)])
     # plt.plot(plotit,'r')
     # savefig(list+'.png',bbox_inches='tight')   #Saves figure, not too important
-    plotit[plotit >= 1.0e+01] = 0
+    plotit[plotit <= 1.0e+01] = 0
     np.savetxt('Wav_Array.txt', plotit)
     # plt.show() 
     return plotit
