@@ -14,7 +14,7 @@ sad_array= np.loadtxt('sad/sad_1.txt')
 #    sad_array = my_file.readlines()
 
 # Calculate the mean vectors per class
-mean_happy = np.array([np.mean(happy_array, axis=0)]
+mean_happy = np.array([np.mean(happy_array, axis=0)])
 mean_sad = np.array([np.mean(sad_array, axis=0)])
 Mu = (mean_sad + mean_happy)/2.0
 
@@ -27,14 +27,14 @@ scatter_happy = np.dot((happy_array-mean_happy),(happy_array-mean_happy).T)
 scatter_sad = np.dot((sad_array-mean_sad),(sad_array-mean_sad).T)
 SW = scatter_sad+scatter_happy
 
-r,N1 = happy_array.shape
-r,N2 = sad_array.shape
+N1 = happy_array.shape
+N2 = sad_array.shape
 mean_happy = mean_happy.transpose()
 mean_sad = mean_sad.transpose()
-m1 = hean_happy-Mu
+m1 = mean_happy-Mu
 m2 = mean_sad-Mu
-Sb1 = N1*np.matmul(m1,m1.transpose())
-Sb2 = N2*np.matmul(m2,m2.transpose())
+Sb1 = N1**np.matmul(m1,m1.transpose())
+Sb2 = N2**np.matmul(m2,m2.transpose())
 # between-class scatter matrix
 Sb = Sb1 + Sb2
 
