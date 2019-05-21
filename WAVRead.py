@@ -15,15 +15,39 @@ def fftwav(list):
     c = fft(b)                        # create a list of complex number
     d = int(len(c)/2)-75000                # you only need half of the fft list
     plotit = abs(c[:(d-1)])
-    plt.plot(plotit,'r')
+    # plt.plot(plotit,'r')
     # savefig(list+'.png',bbox_inches='tight')   #Saves figure, not too important
-    plt.show() 
+    # plt.show() 
 
-with open('Addresses.txt', 'r') as f:
-      readings = f.readlines()
 
-#print(readings[0])    
-fftwav(readings[0].strip('\n')) # .strip needed to remove \n 
+# Happy
+with open('Addresses_happy.txt', 'r') as f:
+      readings_happy = f.readlines()
+
+fftwav(readings_happy[0].strip('\n')) # .strip needed to remove \n 
+fftwav(readings_happy[1].strip('\n'))
+fftwav(readings_happy[2].strip('\n'))
+fftwav(readings_happy[3].strip('\n'))
+fftwav(readings_happy[4].strip('\n'))
+fftwav(readings_happy[5].strip('\n'))
+fftwav(readings_happy[6].strip('\n'))
+fftwav(readings_happy[7].strip('\n'))
+
+
+# Sad
+
+with open('Adresses_sad.txt', 'r') as f:
+      readings_sad = f.readlines()
+
+fftwav(readings_sad[0].strip('\n')) 
+fftwav(readings_sad[1].strip('\n'))
+fftwav(readings_sad[2].strip('\n'))
+fftwav(readings_sad[3].strip('\n'))
+fftwav(readings_sad[4].strip('\n'))
+fftwav(readings_sad[5].strip('\n'))
+fftwav(readings_sad[6].strip('\n'))
+
+
 
 
 # References
