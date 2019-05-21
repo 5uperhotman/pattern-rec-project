@@ -13,12 +13,15 @@ def fftwav(list):
     a = data.T[0]                     # this is a two channel soundtrack, I get the first track
     b=[(ele/2**2.)*2-1 for ele in a]  # this is 8-bit track, b is now normalized on [-1,1)
     c = fft(b)                        # create a list of complex number
-    d = int(len(c)/2)-75000                # you only need half of the fft list
+    d = int(len(c)/2)-75000           # you only need half of the fft list
     plotit = abs(c[:(d-1)])
     # plt.plot(plotit,'r')
     # savefig(list+'.png',bbox_inches='tight')   #Saves figure, not too important
+    plotit[plotit >= 1.0e+01] = 0
+    np.savetxt('Wav_Array.txt', plotit)
     # plt.show() 
-
+    return plotit
+    
 
 # Happy
 with open('Addresses_happy.txt', 'r') as f:
