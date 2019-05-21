@@ -25,6 +25,8 @@ def fftwav(list):
         if plotit[n] <= threshold:
             plotit[n]=0
         n = n + 1
+    ave = np.median(np.nonzero(plotit))
+    print(ave)
     plt.plot(plotit,'r')
     #np.savetxt('Wav_Array.txt', np.nonzero(plotit))
     plt.show() 
