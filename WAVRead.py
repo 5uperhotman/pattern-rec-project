@@ -20,8 +20,9 @@ def fftwav(list, title):
     plotit[plotit <= 2.0e+02] = 0
     avg = np.median(np.nonzero(plotit))
     with open('%s.txt' %title, 'a') as f:
-      f.write('%d ' % avg)   
+      f.write('%d ' % avg)
     # plt.show() 
+    print(avg)
     return avg
     
 
