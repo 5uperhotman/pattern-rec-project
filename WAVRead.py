@@ -11,7 +11,7 @@ def fftwav(list):
       
     fs, data = wavfile.read(list)     # load the data
     a = data.T[0]                     # this is a two channel soundtrack, I get the first track
-    b=[(ele/2**8.)*2-1 for ele in a]  # this is 8-bit track, b is now normalized on [-1,1)
+    b=[(ele/2**2.)*2-1 for ele in a]  # this is 8-bit track, b is now normalized on [-1,1)
     c = fft(b)                        # create a list of complex number
     d = int(len(c)/2)                 # you only need half of the fft list
     plotit = abs(c[:(d-1)])
