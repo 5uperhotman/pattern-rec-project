@@ -5,7 +5,7 @@ from scipy.fftpack import fft
 from scipy.io import wavfile
 import csv
 
-def fftwav(list):
+def fftwav(list, title):
     #for position in range(len(list)):
        #list[position] = 2 * list[position]
       
@@ -18,7 +18,7 @@ def fftwav(list):
     # plt.plot(plotit,'r')
     # savefig(list+'.png',bbox_inches='tight')   #Saves figure, not too important
     plotit[plotit <= 2.0e+02] = 0
-    np.savetxt('Wav_Array.txt', np.nonzero(plotit))
+    np.savetxt('%s.txt' %title, np.nonzero(plotit))
     # plt.show() 
     return plotit
     
@@ -27,14 +27,14 @@ def fftwav(list):
 with open('Addresses_happy.txt', 'r') as f:
       readings_happy = f.readlines()
 
-fftwav(readings_happy[0].strip('\n')) # .strip needed to remove \n 
-fftwav(readings_happy[1].strip('\n'))
-fftwav(readings_happy[2].strip('\n'))
-fftwav(readings_happy[3].strip('\n'))
-fftwav(readings_happy[4].strip('\n'))
-fftwav(readings_happy[5].strip('\n'))
-fftwav(readings_happy[6].strip('\n'))
-fftwav(readings_happy[7].strip('\n'))
+fftwav(readings_happy[0].strip('\n'), "Happy_1") # .strip needed to remove \n 
+fftwav(readings_happy[1].strip('\n'), "Happy_2")
+fftwav(readings_happy[2].strip('\n'), "Happy_3")
+fftwav(readings_happy[3].strip('\n'), "Happy_4")
+fftwav(readings_happy[4].strip('\n'), "Happy_5")
+fftwav(readings_happy[5].strip('\n'), "Happy_6")
+fftwav(readings_happy[6].strip('\n'), "Happy_7")
+fftwav(readings_happy[7].strip('\n'), "Happy_8")
 
 
 # Sad
@@ -42,13 +42,13 @@ fftwav(readings_happy[7].strip('\n'))
 with open('Adresses_sad.txt', 'r') as f:
       readings_sad = f.readlines()
 
-fftwav(readings_sad[0].strip('\n')) 
-fftwav(readings_sad[1].strip('\n'))
-fftwav(readings_sad[2].strip('\n'))
-fftwav(readings_sad[3].strip('\n'))
-fftwav(readings_sad[4].strip('\n'))
-fftwav(readings_sad[5].strip('\n'))
-fftwav(readings_sad[6].strip('\n'))
+fftwav(readings_sad[0].strip('\n'), "Sad_1") 
+fftwav(readings_sad[1].strip('\n'), "Sad_2")
+fftwav(readings_sad[2].strip('\n'), "Sad_3")
+fftwav(readings_sad[3].strip('\n'), "Sad_4")
+fftwav(readings_sad[4].strip('\n'), "Sad_5")
+fftwav(readings_sad[5].strip('\n'), "Sad_6")
+fftwav(readings_sad[6].strip('\n'), "Sad_7")
 
 
 
