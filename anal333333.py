@@ -90,8 +90,8 @@ sad_std = np.std(sad_array)
 with open('testimiseks2.txt', 'r') as f:
       goodtime = f.readlines()
 
-question = fftwav(goodtime[0].strip('\n'))
-
+question1 = fftwav(goodtime[0].strip('\n'))
+question = question1 - (happy_ave + sad_ave)
 print("Happy ave: ", happy_ave)
 print("Sad ave: ", sad_ave)
 print("Question: ", question)
