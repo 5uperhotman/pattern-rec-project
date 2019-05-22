@@ -26,6 +26,9 @@ def fftwav(list):
             plotit[n]=0
         n = n + 1
     ave = np.median(np.nonzero(plotit))
+    m = max(plotit)
+    [i for i, j in enumerate(a) if j == m]
+    print(m,j)
     print(ave)
     plt.plot(plotit,'r')
     #np.savetxt('Wav_Array.txt', np.nonzero(plotit))
