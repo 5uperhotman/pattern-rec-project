@@ -58,17 +58,25 @@ def fftwav(list):
     
     # savefig(list+'.png',bbox_inches='tight')   #Saves figure, not too important
     #plotit[plotit <= 2.0e+02] = 0
+
     plotit = plotit[100:5000]
+    
     n = 0
     threshold = 55000                 # Siit saab muuta thresholdi, millest allapoole väärtused lükatakse nulliks
     for i in plotit:
         if plotit[n] <= threshold:
             plotit[n]=0
         n = n + 1
-    ave = np.median(np.nonzero(plotit))
-
-    print(ave)
-    return ave
+    avg = np.argmax(plotit)
+    avg1 = np.amax(plotit)
+    while plotit[avg] >= plotit[avg+10]+1000000:
+        plotit[avg] = 0
+        avg = np.argmax(plotit)
+        print("in a while: ", avg)
+    plt.plot(plotit,'r')
+    plt.show()
+    print(avg)
+    return avg
 
 happy_array= np.loadtxt('Happy.txt')
 sad_array= np.loadtxt('Sad.txt')
