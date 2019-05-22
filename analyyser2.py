@@ -33,8 +33,8 @@ def fftwav(list):
 happy_array= np.loadtxt('Happy.txt')
 sad_array= np.loadtxt('Sad.txt')
 
-happy_ave = np.median(np.nonzero(happy_array)) 
-sad_ave = np.median(np.nonzero(sad_array)) 
+happy_ave = np.average(happy_array)
+sad_ave = np.average(sad_array)
 
 with open('testimiseks.txt', 'r') as f:
       goodtime = f.readlines()

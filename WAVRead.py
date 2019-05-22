@@ -14,15 +14,18 @@ def fftwav(list, title):
     b=[(ele/2**2.)*2-1 for ele in a]  # this is 8-bit track, b is now normalized on [-1,1)
     c = fft(b)                        # create a list of complex number
     d = int(len(c)/2)-75000           # you only need half of the fft list
+    if d < 5000:
+        d = 5000
     plotit = abs(c[:(d-1)])
-    # plt.plot(plotit,'r')
+    #plt.plot(plotit,'r')
     # savefig(list+'.png',bbox_inches='tight')   #Saves figure, not too important
     plotit[plotit <= 2.0e+02] = 0
-    avg = np.median(np.nonzero(plotit))
+    plotit[0] = 0
+    avg = np.argmax(plotit)			 #np.median(np.nonzero(plotit))
     with open('%s.txt' %title, 'a') as f:
       f.write('%d ' % avg)
-    # plt.show() 
-    print(avg)
+    #plt.show() 
+    print("Processing", title, "... also current average: ", avg)
     return avg
     
 
