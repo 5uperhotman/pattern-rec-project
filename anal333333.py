@@ -6,6 +6,7 @@ from scipy.io import wavfile
 import csv
 import pyaudio
 import wave
+from scipy.stats import sem
 
 def lindistus():
 	CHUNK = 1024
@@ -84,9 +85,13 @@ sad_array= np.loadtxt('Sad.txt')
 happy_ave = np.average(happy_array)
 sad_ave = np.average(sad_array)
 
-happy_std = np.std(happy_array)
-sad_std = np.std(sad_array)
-# lindistus()
+#happy_std = np.std(happy_array)
+#sad_std = np.std(sad_array)
+
+happy_std = sem(happy_array)
+sad_std = sem(sad_array)
+
+lindistus()
 with open('testimiseks2.txt', 'r') as f:
       goodtime = f.readlines()
 
@@ -95,17 +100,15 @@ question = question1 - (happy_ave + sad_ave)
 print("Happy ave: ", happy_ave)
 print("Sad ave: ", sad_ave)
 print("Question: ", question)
+print("Question1: ", question1)
 print("Happy std", happy_std)
-print("Sad time", sad_std)
+print("Sad std", sad_std)
 
-if (happy_ave - happy_std) < question < (happy_ave + happy_std):
-    print("This is a happy person")
-    
-elif (sad_ave - sad_std) < question < (sad_ave + sad_std):
-    print("This is a sad person")
-    
-elif (happy_ave - happy_std) < question < (sad_ave + sad_std):
-    print("This is a neutral person")
-    
-elif (happy_ave + happy_std) < question < (sad_ave - sad_std):
+if (happy_ave - happy_std) < question1 and question1 < (happy_ave + happy_std):
+    print("This is a happy person")    
+elif (sad_ave - sad_std) < question1 and question1 < (sad_ave + sad_std):
+    print("This is a sad person")    
+elif (sad_ave + sad_std) < question1 and question1 < (happy_ave - happy_std):
+    print("This is a neutral person")    
+else: #(happy_ave + happy_std) < question < (sad_ave - sad_std):
     print("Unknown")
